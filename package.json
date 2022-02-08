@@ -1,0 +1,16 @@
+{
+  "name": "demo-errors-typesafe",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "npm run build -- --watch",
+    "start": "lib/index.js"
+  },
+  "keywords": [],
+  "author": "bas@basarat.com",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "4.5.5"
+  }
+}
