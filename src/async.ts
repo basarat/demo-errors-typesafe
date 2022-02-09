@@ -1,20 +1,17 @@
-import { emailValidatorAsync, save, notifyUser } from './vendor';
+import { save, notifyUser } from './vendor';
 
-export type Validator = (value: string) => Promise<boolean>;
-
-/** A general purpose validate function */
-const validate = async (value: string, validators: Validator[]) => {
-  const results = await Promise.all(validators.map(validator => validator(value)));
-  if (results.some(result => result === false)) {
-    return { value };
-  } else {
-    return { error: 'Invalid value' };
-  }
+function isNegative(value: number): Promise<{ value: number } | { error: string }> {
+  return new Promise((res, rej) => {
+    if (value < 0 /** Place holder for complex logic */) {
+      res({ value });
+    } else {
+      res({ error: 'Not Negative' });
+    }
+  });
 }
 
-/** If valid, save, else notify */
-async function submit(email: string) {
-  const result = await validate(email, [emailValidatorAsync]);
+async function demo(input: number) {
+  const result = await isNegative(input);
   if ('error' in result) {
     notifyUser(result.error);
     return;

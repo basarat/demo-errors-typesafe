@@ -1,7 +1,6 @@
 import { emailValidator, save, notifyUser } from './vendor';
 
 type Validator = (value: string) => boolean;
-
 type ValidateResult = { value: string } | { error: string };
 
 /** A general purpose validate function */
@@ -20,6 +19,6 @@ function submit(email: string) {
   if ('error' in result) {
     notifyUser(result.error);
     return;
-  }
+  } 
   save(result.value);
 }
