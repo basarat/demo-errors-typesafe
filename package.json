@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p .",
     "dev": "npm run build -- --watch",
-    "start": "lib/index.js"
+    "start": "node lib/index.js"
   },
   "keywords": [],
   "author": "bas@basarat.com",
