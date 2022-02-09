@@ -1,8 +1,8 @@
 import { emailValidator, save, notifyUser } from './vendor';
 
-export type Validator = (value: string) => boolean;
+type Validator = (value: string) => boolean;
 
-type ValidateResult = { value: string } | { error: string }
+type ValidateResult = { value: string } | { error: string };
 
 /** A general purpose validate function */
 const validate = (value: string, validators: Validator[]): ValidateResult => {
@@ -20,6 +20,6 @@ function submit(email: string) {
   if ('error' in result) {
     notifyUser(result.error);
     return;
-  } 
+  }
   save(result.value);
 }
